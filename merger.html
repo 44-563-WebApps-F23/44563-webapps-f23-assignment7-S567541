@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Merger</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+
+        .flex-container>div {
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pavan Kalyan Busha builds a merger</h1>
+    <div><input type="text" id="div1"></div>
+    <br>
+    <div class="flex-container" id="target">
+        <div class="merger">row item 1</div>
+        <div class="merger">row item 2</div>
+        <div class="merger">row item 3</div>
+    </div>
+    <p> Press the button to create an new element of type div and then add it to the container.
+    </p>
+    <button onclick="makeNewDiv()">Add end</button>
+    <button onclick="addFront()">Add front</button>
+    <button onclick="remove()">Remove</button>
+    <script>
+        function makeNewDiv() {
+            let element = document.createElement("div")
+            element.innerHTML = document.getElementById("div1").value
+            element.className = "merger"
+
+            let container = document.getElementById('target')
+            container.appendChild(element)
+
+        }
+        function remove() {
+            let Items = document.getElementsByClassName("merger")
+            console.log(Items.length)
+            Items[Math.floor(Items.length / 2)].remove()
+
+
+        }
+        function addFront() {
+            let element = document.createElement("div")
+            element.innerHTML = document.getElementById("div1").value
+            element.className = "merger"
+
+            let container = document.getElementById('target')
+            container.insertBefore(element, container.firstChild)
+        }
+    </script>
+</body>
+</html
