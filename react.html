@@ -34,10 +34,12 @@
                     document.getElementById("counter").innerHTML = i
                 }, (8 - i) * 1000)
             }
+            
             setTimeout(() => {
                 if (reactTime == undefined) {
                     document.getElementById("target").innerHTML = "Too Slow"
                 }
+
                 else {
                     let finalTime = Date.now()
                     let x = Math.abs(finalTime - reactTime)
